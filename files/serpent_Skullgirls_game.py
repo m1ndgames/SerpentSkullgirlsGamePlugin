@@ -65,11 +65,11 @@ class SerpentSkullgirlsGame(Game, metaclass=Singleton):
     def after_launch(self):
         self.is_launched = True
 
-        time.sleep(15)
+        time.sleep(5)
 
         self.window_id = self.window_controller.locate_window(self.window_name)
 
-        self.window_controller.move_window(self.window_id, 0, 0)
+        self.window_controller.move_window(self.window_id, 10, 10)
         self.window_controller.focus_window(self.window_id)
 
         self.window_geometry = self.extract_window_geometry()
