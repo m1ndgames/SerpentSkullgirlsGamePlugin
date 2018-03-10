@@ -12,16 +12,16 @@ class SerpentSkullgirlsGame(Game, metaclass=Singleton):
         kwargs["app_id"] = "245170"
         kwargs["app_args"] = None
 
+        self.frame_transformation_pipeline_string = "RESIZE:100x100|GRAYSCALE|FLOAT"
+
+        self.frame_width = 100
+        self.frame_height = 100
+        self.frame_channels = 0
+
         super().__init__(**kwargs)
 
         self.api_class = SkullgirlsAPI
         self.api_instance = None
-		
-        self.frame_transformation_pipeline_string = "RESIZE:100x100|GRAYSCALE|FLOAT"
-        #self.frame_transformation_pipeline_string = "FLOAT"
-        self.frame_width = 100
-        self.frame_height = 100
-        self.frame_channels = 0
  
     @property
     def screen_regions(self):
@@ -69,7 +69,7 @@ class SerpentSkullgirlsGame(Game, metaclass=Singleton):
 
         self.window_id = self.window_controller.locate_window(self.window_name)
 
-        self.window_controller.move_window(self.window_id, 10, 10)
+        self.window_controller.move_window(self.window_id, 0, 0)
         self.window_controller.focus_window(self.window_id)
 
         self.window_geometry = self.extract_window_geometry()
